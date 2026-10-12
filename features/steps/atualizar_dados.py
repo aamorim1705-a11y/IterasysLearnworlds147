@@ -17,9 +17,8 @@ def step_impl(context):
     context.driver.get("https://iterasys.learnworlds.com")
 
 def preencher(campo, texto):
-    for c in texto:
-        campo.send_keys(c)
-        time.sleep(0.0002)
+    campo.send_keys(texto)
+    time.sleep(0.0002)
 
 @when(u'clico em Entrar')
 def step_impl(context): 
