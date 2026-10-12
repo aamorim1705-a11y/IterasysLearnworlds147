@@ -11,13 +11,10 @@ import os
 @when(u'clico no botao Editar na secçao Segurança da conta')
 def step_impl(context):
     elemento = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#security button.learnworlds-button-small"))); elemento.click()
-    context.driver.execute_script(
-    "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
-    context.driver.find_elements(By.CSS_SELECTOR, "#security input[type='password']")[0])
+    context.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", context.driver.find_elements(By.CSS_SELECTOR, "#security input[type='password']")[0])
 
 @when(u'preencho os campos senha atual, nova senha e confirmação da nova senha')
 def step_impl(context):
-
     senha_atual = os.getenv("ITERASYS_CURRENT_PASSWORD")
     nova_senha = os.getenv("ITERASYS_NEW_PASSWORD")
 
@@ -48,7 +45,6 @@ def step_impl(context):
 # =====================
 @when(u'preencho os campos senha atual , nova senha VALIDA e confirmação da nova senha VALIDA')
 def step_impl(context):
-
     nova_senha = os.getenv("ITERASYS_NEW_PASSWORD")
 
     campos = WebDriverWait(context.driver, 10).until(
@@ -70,7 +66,6 @@ def step_impl(context):
 # ==================
 @when(u'preencho os campos senha atual VALIDA, nova senha  e confirmação da nova senha VALIDA')
 def step_impl(context):
-
     senha_atual = os.getenv("ITERASYS_CURRENT_PASSWORD")
     nova_senha = os.getenv("ITERASYS_NEW_PASSWORD")
 
@@ -93,7 +88,6 @@ def step_impl(context):
 # ==================================
 @when(u'preencho os campos senha atual VALIDA, nova senha VALIDA e confirmação da nova senha ')
 def step_impl(context):
-
     senha_atual = os.getenv("ITERASYS_CURRENT_PASSWORD")
     nova_senha = os.getenv("ITERASYS_NEW_PASSWORD")
 
@@ -116,7 +110,6 @@ def step_impl(context):
 # ================================
 @when(u'preencho os campos senha atual VALIDA, nova senha INVALIDA e confirmação da nova senha INVALIDA')
 def step_impl(context):
-
     senha_atual = os.getenv("ITERASYS_CURRENT_PASSWORD")
     nova_senha = "abc"
 
@@ -146,8 +139,3 @@ def step_impl(context):
 def step_impl(context, mensagem): 
     assert context.driver.find_element(By.CSS_SELECTOR,"#security span.lw-red-text").text == mensagem
 
-# =====================================
-# TEARDOWN
-# =====================================
-def after_scenario(context, scenario):
-    context.driver.quit()

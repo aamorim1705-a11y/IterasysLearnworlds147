@@ -13,9 +13,6 @@ import time
 # ==================== 
 @given(u'que acesso o site Iterasys Learnworlds')
 def step_impl(context):
-    context.driver = webdriver.Chrome()
-    context.driver.maximize_window()        
-    context.driver.implicitly_wait(10) 
     context.driver.get("https://iterasys.learnworlds.com")
 
 def preencher(campo, texto):
@@ -128,8 +125,3 @@ def step_impl(context):
 def step_impl(context, mensagem):
     assert context.driver.find_element(By.CSS_SELECTOR, "#personal-details span.lw-red-text").text == mensagem
     
-# =====================================
-# TEARDOWN
-# =====================================
-def after_scenario(context, scenario):
-    context.driver.quit()

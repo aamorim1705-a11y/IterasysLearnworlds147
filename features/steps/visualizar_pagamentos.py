@@ -13,9 +13,5 @@ def step_impl(context):
 def step_impl(context):
     assert context.driver.find_element(By.CSS_SELECTOR, "[data-testid='payment-history-table']").is_displayed()
 
-# =====================================
-# TEARDOWN
-# =====================================
-def after_scenario(context, scenario):
-    context.driver.quit()
+
 

@@ -77,8 +77,3 @@ def step_impl(context, mensagem):
     )
     assert elemento.text == mensagem
 
-# =====================================
-# TEARDOWN
-# =====================================
-def after_scenario(context, scenario):
-    context.driver.quit()
