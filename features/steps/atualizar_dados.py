@@ -6,6 +6,7 @@ import os
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+import time
 
 # ====================
 # ACEDER A APLICAÇAO 
@@ -14,6 +15,11 @@ from selenium.webdriver.common.keys import Keys
 def step_impl(context):
     context.driver = webdriver.Chrome()
     context.driver.get("https://iterasys.learnworlds.com")
+
+def preencher(campo, texto):
+    for c in texto:
+        campo.send_keys(c)
+        time.sleep(0.02)
 
 @when(u'clico em Entrar')
 def step_impl(context): 
@@ -24,8 +30,8 @@ def step_impl(context):
     email = os.getenv("ITERASYS_EMAIL")
     senha = os.getenv("ITERASYS_PASSWORD")
 
-    context.driver.find_element(By.CSS_SELECTOR, "#signin-email").send_keys(email)
-    context.driver.find_element(By.CSS_SELECTOR,"#signin-password").send_keys(senha)
+    preencher(context.driver.find_element(By.CSS_SELECTOR, "#signin-email"), email)
+    preencher(context.driver.find_element(By.CSS_SELECTOR, "#signin-password"), senha)
 
 @when(u'clico no botão Entrar')
 def step_impl(context):  

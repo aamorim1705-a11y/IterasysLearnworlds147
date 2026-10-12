@@ -11,6 +11,9 @@ import os
 @when(u'clico no botao Editar na secçao Segurança da conta')
 def step_impl(context):
     elemento = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#security button.learnworlds-button-small"))); elemento.click()
+    context.driver.execute_script(
+    "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+    context.driver.find_elements(By.CSS_SELECTOR, "#security input[type='password']")[0])
 
 @when(u'preencho os campos senha atual, nova senha e confirmação da nova senha')
 def step_impl(context):
