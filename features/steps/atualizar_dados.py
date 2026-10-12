@@ -19,7 +19,7 @@ def step_impl(context):
 def preencher(campo, texto):
     for c in texto:
         campo.send_keys(c)
-        time.sleep(0.02)
+        time.sleep(0.0002)
 
 @when(u'clico em Entrar')
 def step_impl(context): 

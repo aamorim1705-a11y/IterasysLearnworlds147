@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 # ==================================
 # EDITAR DETALHES DE FATURAMENTO
@@ -15,6 +16,7 @@ def step_impl(context):
 @when(u'clico em Editar na secçao Detalhes de faturamento')
 def step_impl(context):
     context.driver.find_element(By.CSS_SELECTOR, "#billing-details button.lw-brand-text").click()
+    context.driver.execute_script("arguments[0].scrollIntoView({block: 'end'});", context.driver.find_element(By.CSS_SELECTOR, "#billing-details"))
 
 @when(u'preencho os campos Name {Name}, Address {Address}, City {City}, Postal Code {Postal_Code} e Country {Country} com dados válidos')
 def step_impl(context, Name, Address, City, Postal_Code, Country):
