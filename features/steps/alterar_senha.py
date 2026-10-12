@@ -111,6 +111,25 @@ def step_impl(context):
 
     campos[2].click()
 
+# ================================
+# NOVA SENHA COM FORMATO INVÁLIDO
+# ================================
+@when(u'preencho os campos senha atual VALIDA, nova senha INVALIDA e confirmação da nova senha INVALIDA')
+def step_impl(context):
+
+    senha_atual = os.getenv("ITERASYS_CURRENT_PASSWORD")
+    nova_senha = "abc"
+
+    campos = WebDriverWait(context.driver, 10).until(
+        EC.visibility_of_all_elements_located(
+            (By.CSS_SELECTOR, "#security input[type='password']")
+        )
+    )
+
+    campos[0].send_keys(senha_atual)
+    campos[1].send_keys(nova_senha)
+    campos[2].send_keys(nova_senha)
+
 # =================
 # VALIDAR DADOS
 # =================   

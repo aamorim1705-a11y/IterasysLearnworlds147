@@ -14,11 +14,13 @@ import time
 @given(u'que acesso o site Iterasys Learnworlds')
 def step_impl(context):
     context.driver = webdriver.Chrome()
+    context.driver.maximize_window()        
+    context.driver.implicitly_wait(10) 
     context.driver.get("https://iterasys.learnworlds.com")
 
 def preencher(campo, texto):
     campo.send_keys(texto)
-    time.sleep(0.0002)
+    time.sleep(0.0003)
 
 @when(u'clico em Entrar')
 def step_impl(context): 

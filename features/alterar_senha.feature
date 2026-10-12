@@ -27,8 +27,8 @@ Feature: Alterar senha
         Then exibe a <mensagem> com erro
 
         Examples:
-        | id | senha atual  | nova senha     | confirmação da nova senha | mensagem                              |
-        | 01 |              | VALIDA         | VALIDA                    | Current password is required          |
-        | 02 | VALIDA       |                | VALIDA                    | New password is required              |
-        | 03 | VALIDA       | VALIDA         |                           | New password confirmation is required |                             
-                                     
+        | id | senha atual  | nova senha     | confirmação da nova senha | mensagem                                  |
+        | 01 |              | VALIDA         | VALIDA                    | Current password is required              |
+        | 02 | VALIDA       |                | VALIDA                    | New password is required                  |
+        | 03 | VALIDA       | VALIDA         |                           | New password confirmation is required     |                             
+        | 04 | VALIDA       | INVALIDA       | INVALIDA                  | New password does not have a valid format |                             
