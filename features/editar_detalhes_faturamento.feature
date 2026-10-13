@@ -1,6 +1,6 @@
 Feature: Editar Detalhes de faturamento
 
-    Scenario Outline: Editar detalhes de faturamento com dados válidos
+    Scenario Outline: Editar com dados válidos
         Given que acesso o site Iterasys Learnworlds
         When clico em Entrar
         And preencho os campos de login

@@ -1,4 +1,4 @@
-Feature: Atualizar dados
+Feature: Atualizar dados pessoais
 
     Scenario: Dados validos
         Given que acesso o site Iterasys Learnworlds
@@ -13,7 +13,7 @@ Feature: Atualizar dados
         And clico no botão Salvar
         Then os dados pessoais sao atualizados com sucesso
 
-    Scenario Outline: Dados negativos
+    Scenario Outline: Dados invalidos
         Given que acesso o site Iterasys Learnworlds
         When clico em Entrar
         And preencho os campos de login
